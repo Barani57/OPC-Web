@@ -25,7 +25,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* === TOKENS === */
 :root{
   --tan:#B68A5C;--tan-dk:#9C7142;--tan-dp:#7A5530;
   --cream:#FBF8F3;--cream-dk:#F0E8DA;--cream-bd:#E2D0B8;
@@ -33,8 +32,6 @@
   --body-text:#3D2E1A;--muted:#8A6E4E;
   --r:14px;--r-sm:8px;--pill:999px;
 }
-
-/* === RESET === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'Poppins',sans-serif;font-weight:400;background:var(--cream);color:var(--body-text);line-height:1.7;overflow-x:hidden}
@@ -42,26 +39,21 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer}
 
-/* === PROGRESS BAR === */
-#pgbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--tan);z-index:9999;transition:width .1s linear}
+/* PROGRESS BAR */
+#pgbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--tan);z-index:9999}
 
-/* === REVEAL ANIMATION — CSS only, no JS library === */
-/* Elements start visible. Intersection Observer adds .visible class. No opacity:0 trap. */
+/* REVEAL — CSS only, safe */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .55s ease,transform .55s ease}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
 .reveal-right{opacity:0;transform:translateX(28px);transition:opacity .55s ease,transform .55s ease}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
-/* Stagger delays */
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-/* Contact and footer are ALWAYS visible — no animation */
+/* Contact always visible */
 #contact,#contact *{opacity:1!important;transform:none!important}
 
-/* === PROGRESS BAR === */
-#pgbar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--tan);z-index:9999}
-
-/* === NAVBAR === */
+/* NAVBAR */
 #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;background:transparent;transition:padding .35s,background .35s,box-shadow .35s}
 #nav.up{background:rgba(251,248,243,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--cream-bd);padding:10px 0}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
@@ -83,15 +75,13 @@ button{font-family:inherit;cursor:pointer}
 .ham{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;cursor:pointer}
 .ham span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:background .3s}
 #nav.up .ham span{background:var(--near-black)}
-
-/* Mobile drawer */
 .drawer{display:none;position:fixed;inset:0;background:var(--cream);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:28px}
 .drawer.on{display:flex}
 .drawer a{font-size:1.25rem;font-weight:700;color:var(--near-black)}
 .drawer .d-cta{background:var(--tan-dk);color:#fff!important;padding:13px 36px;border-radius:var(--pill)}
 .d-close{position:absolute;top:20px;right:24px;font-size:1.5rem;background:none;border:none;color:var(--body-text);cursor:pointer}
 
-/* === SHARED === */
+/* SHARED */
 section{padding:80px 0}
 .eyebrow{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tan-dk);margin-bottom:10px}
 .h2{font-size:clamp(1.65rem,3.5vw,2.4rem);font-weight:700;line-height:1.2;color:var(--near-black);margin-bottom:14px}
@@ -107,7 +97,7 @@ section{padding:80px 0}
 .btn-cream{background:var(--cream);color:var(--tan-dk)}
 .btn-cream:hover{background:var(--cream-dk)}
 
-/* === HERO === */
+/* HERO */
 #hero{background:var(--near-black);display:grid;grid-template-columns:1fr 1fr;min-height:100svh;padding-top:78px;overflow:hidden}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:56px 48px 56px 44px;position:relative}
 .hero-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 0% 50%,rgba(182,138,92,.12) 0%,transparent 70%);pointer-events:none}
@@ -121,7 +111,6 @@ section{padding:80px 0}
 .h-stat:last-child{border-right:none;padding-right:0;margin-right:0}
 .h-stat-n{font-size:1.7rem;font-weight:700;color:var(--tan);line-height:1}
 .h-stat-l{font-size:.68rem;color:rgba(255,255,255,.45);margin-top:4px;line-height:1.4}
-/* Hero right — image fills column via absolute positioning */
 .hero-right{position:relative;overflow:hidden;align-self:stretch}
 .hero-right > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.85) saturate(.92);display:block}
 .hero-ph{position:absolute;inset:0;background:linear-gradient(135deg,var(--dark-mid),#3D2E1A);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:rgba(255,255,255,.22);font-size:.78rem;text-align:center;padding:20px}
@@ -132,14 +121,14 @@ section{padding:80px 0}
 .hero-badge b{font-size:.78rem;font-weight:700;color:#fff;display:block;line-height:1.3}
 .hero-badge span{font-size:.63rem;color:rgba(255,255,255,.48)}
 
-/* Ticker */
+/* TICKER */
 .ticker{background:var(--tan-dk);padding:9px 0;overflow:hidden;white-space:nowrap}
 .ticker-track{display:inline-flex;animation:tick 32s linear infinite}
 .ticker-track span{display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-size:.78rem;font-weight:600;color:#fff}
 .ticker-track span::before{content:'✦';font-size:.52rem;color:rgba(255,255,255,.5)}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* === ABOUT === */
+/* ABOUT */
 #about{background:#fff}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .about-img-wrap{position:relative;overflow:hidden;border-radius:var(--r)}
@@ -155,7 +144,7 @@ section{padding:80px 0}
 .fact-l{font-size:.67rem;color:var(--muted)}
 .fact-v{font-size:.8rem;font-weight:600;color:var(--near-black);margin-top:2px}
 
-/* === IMPACT === */
+/* IMPACT */
 #impact{background:var(--near-black);padding:60px 0}
 .impact-row{display:grid;grid-template-columns:repeat(4,1fr)}
 .imp{text-align:center;padding:36px 20px;border-right:1px solid rgba(255,255,255,.07)}
@@ -163,13 +152,13 @@ section{padding:80px 0}
 .imp-n{font-size:clamp(1.9rem,3.2vw,2.7rem);font-weight:700;color:var(--tan);line-height:1}
 .imp-l{font-size:.76rem;color:rgba(255,255,255,.45);margin-top:7px;line-height:1.5}
 
-/* === MEALS === */
+/* MEALS */
 #meals{background:var(--cream)}
 .meals-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
 .meal{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--cream-bd);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
 .meal:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(60,30,10,.1)}
 .meal-img-wrap{width:100%;height:210px;overflow:hidden;flex-shrink:0}
-.meal-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.meal-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
 .meal-img-ph{width:100%;height:210px;background:var(--cream-dk);display:flex;align-items:center;justify-content:center;color:var(--tan);font-size:2rem;flex-shrink:0}
 .meal-body{padding:20px;flex:1;display:flex;flex-direction:column}
 .meal-badge{display:inline-flex;align-items:center;gap:5px;background:var(--cream);border-radius:var(--pill);padding:3px 11px;font-size:.66rem;font-weight:600;color:var(--tan-dk);margin-bottom:9px;width:fit-content}
@@ -182,7 +171,7 @@ section{padding:80px 0}
 .meal-btn{width:100%;margin-top:13px;background:var(--tan-dk);color:#fff;border:none;padding:10px;border-radius:var(--pill);font-size:.81rem;font-weight:600;font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .2s;cursor:pointer}
 .meal-btn:hover{background:var(--tan-dp)}
 
-/* === SPONSOR === */
+/* SPONSOR */
 #sponsor{background:var(--tan-dk);padding:72px 0}
 .sponsor-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .s-tag{display:inline-block;background:rgba(255,255,255,.15);border-radius:var(--pill);padding:4px 13px;font-size:.67rem;font-weight:600;color:#fff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:13px}
@@ -193,7 +182,7 @@ section{padding:80px 0}
 .s-opt:hover{background:rgba(255,255,255,.15)}
 .s-opt-lbl{font-size:.86rem;font-weight:600;color:#fff}
 .s-opt-sub{font-size:.7rem;color:rgba(255,255,255,.55);margin-top:2px}
-.s-opt-price{font-size:1.1rem;font-weight:700;color:var(--tan)}
+.s-opt-price{font-size:1.1rem;font-weight:700;color:#fff}
 .s-cta{margin-top:24px}
 .occ-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:28px 24px}
 .occ-icon{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;margin-bottom:16px}
@@ -202,7 +191,7 @@ section{padding:80px 0}
 .occ-tags{display:flex;flex-wrap:wrap;gap:7px}
 .occ-tag{background:rgba(255,255,255,.11);border-radius:var(--pill);padding:5px 12px;font-size:.69rem;color:rgba(255,255,255,.82)}
 
-/* === QUOTE BLOCK === */
+/* QUOTE */
 #quoteblock{position:relative;padding:88px 0;overflow:hidden;background:var(--near-black)}
 .qb-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center top;filter:brightness(.22) saturate(.5)}
 .qb-fallback{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,var(--near-black),var(--dark-mid))}
@@ -211,7 +200,7 @@ section{padding:80px 0}
 .qb-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.25rem,2.6vw,1.8rem);color:#fff;line-height:1.55;margin-bottom:18px}
 .qb-source{font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tan)}
 
-/* === POSTER CARDS === */
+/* POSTER CARDS */
 #poster{background:var(--cream-dk);padding:72px 0}
 .poster-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .pc{border-radius:var(--r);overflow:hidden;position:relative;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end}
@@ -226,19 +215,41 @@ section{padding:80px 0}
 .pc-text{font-size:.95rem;font-weight:700;color:#fff;line-height:1.5}
 .pc-text span{color:var(--tan)}
 
-/* === GALLERY === */
+/* =====================================================
+   GALLERY — Fixed for all devices
+   Desktop: 4-col masonry with tall/wide spans
+   Tablet:  2-col, equal rows, no spans
+   Mobile:  1-col, tall rows so portrait photos show fully
+===================================================== */
 #gallery{background:#fff}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:10px;margin-top:44px}
+.gal-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  gap:10px;margin-top:44px;
+}
 .gi{border-radius:var(--r-sm);overflow:hidden;position:relative}
+/* Desktop spans */
 .gi.tall{grid-row:span 2}
 .gi.wide{grid-column:span 2}
-.gi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+/* ALL gallery images absolutely fill their cell */
+.gi img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top; /* default — overridden per-image below */
+  display:block;
+}
+/* Per-image object-position overrides based on actual photo content */
+.gi img.pos-center{object-position:center center}
+.gi img.pos-bottom{object-position:center bottom}
+.gi img.pos-top{object-position:center 30%}
 .gi-ph{position:absolute;inset:0;background:var(--cream-dk);display:flex;align-items:center;justify-content:center;color:var(--tan);font-size:1.7rem}
 .gi-ov{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(26,18,8,.55) 0%,transparent 50%);opacity:0;transition:opacity .25s;display:flex;align-items:flex-end;padding:11px}
 .gi:hover .gi-ov{opacity:1}
 .gi-ov span{font-size:.7rem;color:#fff;font-weight:600}
 
-/* === TRUST === */
+/* TRUST */
 #trust{background:var(--cream)}
 .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
 .tcard{background:#fff;border-radius:var(--r);padding:28px 24px;border:1px solid var(--cream-bd);margin-bottom:16px}
@@ -259,7 +270,7 @@ section{padding:80px 0}
 .assure{display:flex;align-items:flex-start;gap:9px;font-size:.8rem;color:var(--body-text);margin-bottom:9px}
 .assure i{color:var(--tan-dk);margin-top:3px;flex-shrink:0;font-size:.8rem}
 
-/* === DONATE === */
+/* DONATE */
 #donate{background:var(--near-black);padding:80px 0}
 .donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .dn-h2{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:14px}
@@ -273,7 +284,6 @@ section{padding:80px 0}
 .slogan{display:flex;align-items:center;gap:8px;font-size:.74rem;color:rgba(255,255,255,.45);margin-bottom:7px}
 .slogan::before{content:'◆';font-size:.44rem;color:var(--tan)}
 .dn-note{font-size:.73rem;color:rgba(255,255,255,.36);line-height:1.7}
-/* QR box */
 .qr-box{background:#fff;border-radius:var(--r);padding:32px 28px;text-align:center}
 .qr-bnk{font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .qr-ttl{font-size:.9rem;font-weight:600;color:var(--near-black);margin-bottom:16px}
@@ -287,11 +297,11 @@ section{padding:80px 0}
 .pay-app{background:var(--cream);border-radius:var(--r-sm);padding:7px 4px;font-size:.59rem;font-weight:600;color:var(--muted);text-align:center}
 .pay-app i{display:block;font-size:.92rem;color:var(--tan-dk);margin-bottom:3px}
 
-/* === VOLUNTEER === */
+/* VOLUNTEER */
 #volunteer{background:var(--cream-dk);padding:64px 0}
 .vol-row{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
 
-/* === CONTACT + FOOTER — always fully visible, no animation === */
+/* CONTACT + FOOTER — always visible */
 #contact{background:var(--dark-mid);padding:72px 0 0}
 .ct-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.08)}
 .ct-h2{font-size:clamp(1.45rem,2.6vw,1.9rem);font-weight:700;color:#fff;margin-bottom:20px}
@@ -305,7 +315,6 @@ section{padding:80px 0}
 .soc-row{display:flex;gap:9px}
 .soc{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);font-size:.82rem;transition:background .2s,color .2s}
 .soc:hover{background:var(--tan);color:#fff}
-/* Map — always rendered, no lazy, no AOS */
 .map-wrap{width:100%;height:270px;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08)}
 .map-wrap iframe{width:100%;height:100%;border:none;display:block}
 .ft-bottom{padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
@@ -313,7 +322,7 @@ section{padding:80px 0}
 .ft-l a{color:var(--tan)}
 .ft-r{font-size:.67rem;color:rgba(255,255,255,.28);text-align:right;line-height:1.65}
 
-/* === FABs === */
+/* FABs */
 .wa-fab{position:fixed;bottom:24px;left:24px;z-index:80}
 .wa-fab a{width:48px;height:48px;border-radius:50%;background:#25D366;color:#fff;font-size:1.25rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(37,211,102,.35);transition:transform .2s}
 .wa-fab a:hover{transform:scale(1.08)}
@@ -329,7 +338,6 @@ section{padding:80px 0}
   .hero-right > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
   .hero-left{padding:32px 24px 44px}
   .hero-badge{bottom:14px;left:14px}
-  .hero-btns{flex-wrap:wrap}
 
   .about-grid{grid-template-columns:1fr;gap:44px}
   .about-img-wrap img{height:320px}
@@ -346,16 +354,14 @@ section{padding:80px 0}
 
   .poster-grid{grid-template-columns:1fr 1fr}
 
-  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+  /* Tablet gallery: 2-col, equal rows, no spans at all */
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px}
   .gi.tall,.gi.wide{grid-row:auto;grid-column:auto}
 
   .trust-grid{grid-template-columns:1fr}
-
   .donate-grid{grid-template-columns:1fr;gap:40px}
-
   .ct-grid{grid-template-columns:1fr;gap:36px}
   .map-wrap{height:240px}
-
   .ft-r{text-align:left}
 }
 
@@ -383,15 +389,14 @@ section{padding:80px 0}
 
   .poster-grid{grid-template-columns:1fr}
 
-  .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:155px}
+  /* Mobile gallery: 1 full-width column, tall enough to show portrait subjects */
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:280px}
   .gi.tall,.gi.wide{grid-row:auto;grid-column:auto}
 
   .bearer-row{grid-template-columns:1fr}
   .pay-apps{grid-template-columns:repeat(2,1fr)}
-
   .ft-bottom{flex-direction:column;align-items:flex-start}
   .ft-r{text-align:left}
-
   .mob-donate{display:block}
 }
 
@@ -400,9 +405,12 @@ section{padding:80px 0}
 ===================================================== */
 @media(max-width:400px){
   .hero-right{height:240px;min-height:240px}
-  .gal-grid{grid-template-columns:1fr;grid-auto-rows:190px}
+  /* Single column gallery with comfortable height */
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:240px}
+  .gi.tall,.gi.wide{grid-row:auto;grid-column:auto}
   .meals-row{grid-template-columns:1fr}
   .chips{gap:6px}
+  .hero-h1{font-size:1.6rem}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -688,6 +696,11 @@ section{padding:80px 0}
 </section>
 
 <!-- GALLERY -->
+<!-- object-position class guide:
+     default (center top)  → people photos where faces are near top
+     class="pos-center"    → landscape/food/room photos
+     class="pos-bottom"    → photos where subjects are at bottom of frame
+-->
 <section id="gallery">
   <div class="wrap">
     <div class="hdr c reveal">
@@ -696,38 +709,56 @@ section{padding:80px 0}
       <p class="sub">Real photos from our home. Real elders. Real care every single day.</p>
     </div>
     <div class="gal-grid">
+      <!-- tall: first-eat.png — group eating, pos top → center top (default) -->
       <div class="gi tall">
-        <img src="./assets/first-eat.png" alt="Elders at OPC Trust Trichy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="./assets/first-eat.png" alt="Elders at OPC Trust Trichy" class="pos-top"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="gi-ph" style="display:none"><i class="fas fa-users"></i></div>
         <div class="gi-ov"><span>Together</span></div>
       </div>
+      <!-- about-left.png — group eating, center top -->
       <div class="gi">
-        <img src="./assets/about-left.png" alt="Mealtime at OPC Trust" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="./assets/about-left.png" alt="Mealtime at OPC Trust"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="gi-ph" style="display:none"><i class="fas fa-bowl-rice"></i></div>
         <div class="gi-ov"><span>Mealtime</span></div>
       </div>
+      <!-- meal-time.png — eating scene, center top -->
       <div class="gi">
-        <img src="./assets/meal-time.png" alt="Breakfast at OPC Trust" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="./assets/meal-time.png" alt="Breakfast at OPC Trust"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="gi-ph" style="display:none"><i class="fas fa-mug-hot"></i></div>
         <div class="gi-ov"><span>Morning Breakfast</span></div>
       </div>
+      <!-- wide: lunch-together.png — landscape scene → center center -->
       <div class="gi wide">
-        <img src="./assets/lunch-together.png" alt="Lunch at OPC Trust" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="./assets/lunch-together.png" alt="Lunch at OPC Trust"
+             class="pos-center"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="gi-ph" style="display:none"><i class="fas fa-heart"></i></div>
         <div class="gi-ov"><span>Lunch Together</span></div>
       </div>
+      <!-- eating-new.png — subjects in middle → center center -->
       <div class="gi">
-        <img src="./assets/eating-new.png" alt="Dinner at OPC Trust" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="./assets/eating-new.png" alt="Dinner at OPC Trust"
+             class="pos-center"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="gi-ph" style="display:none"><i class="fas fa-moon"></i></div>
         <div class="gi-ov"><span>Dinner</span></div>
       </div>
+      <!-- fin-eat.png — window photo, content in middle → center center -->
       <div class="gi">
-        <img src="./assets/fin-eat.png" alt="Daily care at OPC Trust" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="./assets/fin-eat.png" alt="Daily care at OPC Trust"
+             class="pos-center"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="gi-ph" style="display:none"><i class="fas fa-hands-holding-heart"></i></div>
         <div class="gi-ov"><span>Daily Care</span></div>
       </div>
+      <!-- newpray.png — heads at bottom of frame → center bottom -->
       <div class="gi">
-        <img src="./assets/newpray.png" alt="Elders praying at OPC Trust" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="./assets/newpray.png" alt="Elders praying at OPC Trust"
+        class="pos-top"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="gi-ph" style="display:none"><i class="fas fa-hands-praying"></i></div>
         <div class="gi-ov"><span>Gratitude</span></div>
       </div>
@@ -761,7 +792,8 @@ section{padding:80px 0}
         <div class="tcard">
           <div class="tcard-ttl"><i class="fas fa-users"></i> Office Bearers</div>
           <div class="bearer-row">
-            <div class="bearer"><div class="bearer-av"><i class="fas fa-user-tie"></i></div><div><b>Naveenkumar Kadrvel</b><small>President</small></div></div>
+            <!-- Client confirmed: show first name only, no surname -->
+            <div class="bearer"><div class="bearer-av"><i class="fas fa-user-tie"></i></div><div><b>Naveenkumar</b><small>President</small></div></div>
             <div class="bearer"><div class="bearer-av"><i class="fas fa-user"></i></div><div><b>Manoj Krishna</b><small>Treasurer</small></div></div>
           </div>
         </div>
@@ -841,7 +873,7 @@ section{padding:80px 0}
   </div>
 </section>
 
-<!-- CONTACT + FOOTER — NO animation, always visible -->
+<!-- CONTACT + FOOTER -->
 <footer id="contact">
   <div class="wrap">
     <div class="ct-grid">
@@ -872,7 +904,6 @@ section{padding:80px 0}
         </div>
       </div>
       <div>
-        <!-- Map: no lazy loading, no AOS — renders immediately -->
         <div class="map-wrap">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3920.236478058717!2d78.61156799999999!3d10.716235000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQyJzU4LjUiTiA3OMKwMzYnNDEuNiJF!5e0!3m2!1sen!2sin!4v1782716874843!5m2!1sen!2sin"
@@ -904,7 +935,6 @@ section{padding:80px 0}
 </div>
 
 <script>
-/* === PROGRESS BAR === */
 const pgbar=document.getElementById('pgbar');
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{
@@ -913,17 +943,13 @@ window.addEventListener('scroll',()=>{
   nav.classList.toggle('up',window.scrollY>50);
 },{passive:true});
 
-/* === HAMBURGER === */
 const ham=document.getElementById('ham');
 const drawer=document.getElementById('drawer');
 ham.addEventListener('click',()=>{drawer.classList.add('on');document.body.style.overflow='hidden'});
 document.getElementById('dclose').addEventListener('click',closeD);
 function closeD(){drawer.classList.remove('on');document.body.style.overflow=''}
-
-/* === DONATE SCROLL === */
 function goDonate(){document.getElementById('donate').scrollIntoView({behavior:'smooth'})}
 
-/* === CHIPS === */
 document.querySelectorAll('.chip').forEach(c=>{
   c.addEventListener('click',()=>{
     document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
@@ -932,17 +958,13 @@ document.querySelectorAll('.chip').forEach(c=>{
 });
 document.querySelectorAll('.s-opt').forEach(o=>o.addEventListener('click',goDonate));
 
-/* === INTERSECTION OBSERVER — reveal animations === */
-/* Contact section is excluded via CSS (opacity:1!important) */
 const revealObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}});
 },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>{
-  /* Skip elements inside #contact — always visible */
   if(!el.closest('#contact')) revealObs.observe(el);
 });
 
-/* === COUNTER ANIMATION === */
 function runCounter(el){
   const target=parseInt(el.dataset.count);
   const isRupee=!!el.dataset.rupee;
